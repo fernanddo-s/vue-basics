@@ -1,10 +1,6 @@
 <template>
   <div id="app">
-    <!--<nav>
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
-    </nav>-->
-    <MenuView />
+    <MenuView v-if="this.$router.currentRoute.name != 'Login'"></MenuView>
     <router-view/>
   </div>
 </template>
@@ -30,5 +26,6 @@ export default {
     font-family: 'Montserrat', sans-serif;
     padding: 0;
     margin: 0;
+    background-color: rgb(197, 197, 197);
   }
 </style>
