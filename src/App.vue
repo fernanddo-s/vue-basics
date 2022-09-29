@@ -28,4 +28,20 @@ export default {
     margin: 0;
     background-color: rgb(197, 197, 197);
   }
+
+  .container {
+    margin-top: 15px;
+  }
+
+  .titulo{
+    font-weight: 600;
+  }
+
+  hr {
+    margin: 0;
+  }
+
+  .sub-container{
+    margin-top: 15px;
+  }
 </style>
