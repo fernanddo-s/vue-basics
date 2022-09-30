@@ -20,6 +20,7 @@
                     <tr>
                         <th>Código</th>
                         <th>Nome</th>
+                        <th>Quantidade</th>
                         <th>Valor</th>
                         <th>Data de cadastro</th>
                         <th></th>
@@ -33,14 +34,32 @@
   
 <script>
 import ButtonView from "@/components/button/ButtonView.vue";
+import produtoService from "@/services/produto-service.js"
+import Produto from "@/models/Produto"
+
 export default {
   name: "ControleDeProdutos",
   data() {
     return {
-      mensagem: "Estou na tela de Controle de produtos",
+      produtos: []
     };
   },
   components: { ButtonView },
+  methods:{
+    obterTodosOsProdutos(){
+      produtoService.obterTodos()
+      .then(response => {
+        this.produtos = response.data.map(p=> new Produto(p));
+        console.log(this.produtos)
+      })
+      .catch(error => {
+        console.log(error)
+      })
+    }
+  },
+  mounted(){
+    this.obterTodosOsProdutos()
+  }
 };
 </script>
   
